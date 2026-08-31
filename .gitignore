@@ -1,0 +1,28 @@
+﻿# Operating System Junk
+.DS_Store
+Thumbs.db
+desktop.ini
+
+# Editor / IDE Configs
+.vscode/
+.idea/
+*.swp
+
+# Virtualization / VM Artifacts (Crucial)
+*.vdi
+*.vmdk
+*.vhd
+*.vhdx
+*.nvram
+*.vbox*
+*.log
+
+# Sensitive Credentials / Keys
+*.pem
+*.key
+*.pfx
+id_rsa*
+id_ed25519*
+*.env
+secrets.*
+credentials.json
