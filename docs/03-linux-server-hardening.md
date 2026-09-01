@@ -1,12 +1,30 @@
 ﻿# Phase 3: Ubuntu Server Hardening & Automation
 
-## Server Specifications
-- **Hostname:** `srv-linux01`
-- **Role:** File & Utility Server (192.168.50.20)
-- **OS:** Ubuntu Server LTS
+## System Profile
+* **Hostname:** `SRV-LNX01`
+* **OS:** Ubuntu Server LTS
+* **IP Address:** `192.168.50.20/24`
+* **Role:** Operations Utility & Log Repository
 
-## Implemented Controls
-1. Ed25519 Public Key Authentication
-2. Root SSH Login Disablement
-3. UFW State-Tracking Configuration
-4. Automated Backup Daemon
+---
+
+## Hardening Controls Implemented
+
+### 1. SSH Remote Management Security
+* **Authentication Scheme:** Ed25519 cryptographic keypairs (`256-bit`).
+* **Root Access:** `PermitRootLogin no` enforced.
+* **Password Authentication:** Disabled globally in `/etc/ssh/sshd_config.d/99-hardened.conf`.
+* **Connection Throttling:** Capped at `MaxAuthTries 3`.
+
+### 2. Host Firewall (UFW) Configuration
+```text
+Status: active
+Logging: on (low)
+Default: deny (incoming), allow (outgoing), disabled (routed)
+New profiles: skip
+
+To                         Action      From
+--                         ------      ----
+22/tcp                     LIMIT IN    Anywhere                   # SSH Rate Limited
+53/udp on ens33            ALLOW IN    192.168.50.0/24            # Lab Internal DNS
+Anywhere                   ALLOW IN    Anywhere (ICMP)            # Allow ICMP Echo
