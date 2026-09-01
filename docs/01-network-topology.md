@@ -1,13 +1,13 @@
 ﻿# Phase 1: Network Topology & Virtual Switch Configuration
 
 ## Overview
-This document details the virtual network architecture, subnet design, and traffic isolation established for the `enterprise-homelab` environment. The environment uses an isolated virtual switch to simulate an enterprise branch office without exposing production home devices to lab traffic.
+This document details the virtual network architecture, subnet design, and traffic isolation established for the `it-support-operations-lab` environment. The environment uses an isolated virtual switch to simulate an enterprise branch office without exposing production home devices to lab traffic.
 
 ---
 
 ## Network Architecture Diagram
 
-![Network Architecture](../architecture/network-diagram.png)
+![Network Architecture](../architecture/network-diagram.jpg)
 
 ---
 
